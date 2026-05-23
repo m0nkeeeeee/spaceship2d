@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+using System.collections;
+using System.collections.Generic;
+
+public class Player : MonoBehaviour
+{
+
+
+
+    public float playerSpeed;
+    private Rigidbody2D rb;
+    private Vector2 playerDirection;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float directionY = Input.GetAxisRaw("Vertical");  // uses arrow keys up and down to assign value like +1 and -1 
+        playerDirection = new Vector2(0, directionY).normalized; // since we wont be moving in the x axis we give value 0 and Y coordinate and in the end we add normalised so it is smooth
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(0, playerDirection.y * playerSpeed);
+    }
+}
