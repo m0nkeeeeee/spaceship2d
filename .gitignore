@@ -12,6 +12,7 @@ Assets/AssetStoreTools*
 
 .idea/
 .vscode/
+.vs/
 
 *.csproj
 *.unityproj
